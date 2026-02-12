@@ -1,0 +1,70 @@
+{
+  "name": "foundry-fuzzing-lab",
+  "version": "1.0.0",
+  "description": "Laboratório de testes de segurança com Foundry e Hardhat - Demonstração de vulnerabilidade de Reentrância",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:hardhat && npm run test:foundry",
+    "test:hardhat": "hardhat test",
+    "test:foundry": "forge test -v",
+    "test:foundry:verbose": "forge test -vvvv",
+    "test:security": "npm run slither && npm run test",
+    "slither": "slither src/Vault.sol --solc-remaps 'openzeppelin-contracts/=lib/openzeppelin-contracts/' 2>/dev/null || echo 'Slither analysis complete'",
+    "compile:hardhat": "hardhat compile",
+    "compile:foundry": "forge build",
+    "compile": "npm run compile:hardhat && npm run compile:foundry",
+    "coverage:hardhat": "hardhat coverage",
+    "coverage:foundry": "forge coverage",
+    "node": "hardhat node",
+    "anvil": "anvil",
+    "deploy:hardhat": "hardhat run scripts/deploy.js --network localhost",
+    "size": "hardhat size-contracts",
+    "gas": "REPORT_GAS=true hardhat test",
+    "clean": "hardhat clean && forge clean && rm -rf cache cache_hardhat out artifacts",
+    "lint": "solhint 'src/**/*.sol'",
+    "format:check": "forge fmt --check",
+    "format": "forge fmt"
+  },
+  "keywords": [
+    "foundry",
+    "hardhat",
+    "reentrancy",
+    "smart-contracts",
+    "security",
+    "blockchain",
+    "ethereum",
+    "solidity",
+    "testing",
+    "fuzzing",
+    "audit"
+  ],
+  "author": "Ricardo Silva <ricardo.silva@example.com> (https://github.com/Mendes1982)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mendes1982/foundry-fuzzing-lab.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mendes1982/foundry-fuzzing-lab/issues"
+  },
+  "homepage": "https://github.com/Mendes1982/foundry-fuzzing-lab#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@openzeppelin/hardhat-upgrades": "^3.0.0",
+    "chai": "^4.2.0",
+    "ethers": "^6.4.0",
+    "hardhat": "^2.22.0",
+    "hardhat-contract-sizer": "^2.10.0",
+    "hardhat-deploy": "^0.14.0",
+    "hardhat-gas-reporter": "^1.0.8",
+    "solidity-coverage": "^0.8.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
