@@ -1,0 +1,11 @@
+node_modules/
+cache/
+cache_hardhat/
+out/
+artifacts/
+ricardo-portfolio/
+web3-security-automation/
+public/
+*.log
+*.tar.gz
+.env
